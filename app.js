@@ -16,6 +16,35 @@ class Item extends React.Component {
   }
 }
 
+class VisItem extends React.Component {
+  render() {
+    const { title, url, description } = this.props.item;
+    return (
+      <div>
+        <h3>{`- ${title} -`}</h3>
+        <img src={url} />
+        <div
+          className="detail"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      </div>
+    );
+  }
+}
+
+class MediaItem extends React.Component {
+  render() {
+    const { title, event, url } = this.props.item;
+    return (
+      <div>
+        <a href={url} target="_blank">
+          {`${title} @ ${event}`}
+        </a>
+      </div>
+    );
+  }
+}
+
 const transform = ({
   data: {
     feed: { entry }
@@ -34,15 +63,27 @@ const transform = ({
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], categories: [], subcategories: [] };
+    this.state = {
+      items: [],
+      categories: [],
+      subcategories: [],
+      visItems: [],
+      mediaItems: []
+    };
   }
 
   componentDidMount() {
     axios
-      .all([1, 2, 3].map(getUrl).map(axios.get))
+      .all([1, 2, 3, 4, 5].map(getUrl).map(axios.get))
       .then(responses => responses.map(transform))
-      .then(([items, categories, subcategories]) =>
-        this.setState({ items, categories, subcategories })
+      .then(([items, categories, subcategories, visItems, mediaItems]) =>
+        this.setState({
+          items,
+          categories,
+          subcategories,
+          visItems,
+          mediaItems
+        })
       );
   }
 
@@ -53,12 +94,63 @@ class App extends React.Component {
   }
 
   render() {
-    const { categories, subcategories } = this.state;
+    const { categories, subcategories, visItems, mediaItems } = this.state;
     return (
       <div>
         <h1>Lifetime Sojourner</h1>
         <div>
-          {`travel through everyday life as a sojourner // curious, passionate and adventureous // jerome yang's website`}
+          {`travel through everyday life as a sojourner // curious, passionate and adventureous // jerome yang`}
+        </div>
+        <div>
+          taiwanese // blogger // traveler // software engineer at{" "}
+          <a href="https://www.hubspot.com/" target="_blank">
+            hubspot
+          </a>{" "}
+          // member of{" "}
+          <a href="https://mosaicboston.com/" target="_blank">
+            mosaic boston church
+          </a>
+        </div>
+        <div className="flex">
+          <div>
+            <i class="fa fa-instagram" />{" "}
+            <a
+              href="https://www.instagram.com/lifetimesojourner/"
+              target="_blank"
+            >
+              lifetimesojourner
+            </a>
+          </div>
+          <div>
+            <i class="fa fa-facebook-square" />{" "}
+            <a
+              href="https://www.facebook.com/lifetimesojourner/"
+              target="_blank"
+            >
+              lifetimesojourner
+            </a>{" "}
+            <a href="https://www.facebook.com/jerome.c.yang/" target="_blank">
+              jerome.c.yang
+            </a>
+          </div>
+          <div>
+            <i class="fa fa-twitter-square" />{" "}
+            <a href="https://twitter.com/jeromyang/" target="_blank">
+              jeromyang
+            </a>
+          </div>
+          <div>
+            <i class="fa fa-linkedin-square" />{" "}
+            <a href="https://www.linkedin.com/in/jeromecyang/" target="_blank">
+              jeromecyang
+            </a>
+          </div>
+          <div>
+            <i class="fa fa-envelope-square" />{" "}
+            <a href="mailto:hi@jeromeyang.com" target="_blank">
+              hi@jeromeyang.com
+            </a>
+          </div>
         </div>
         {categories.map(category => {
           const thisSubcategories = subcategories
@@ -89,6 +181,14 @@ class App extends React.Component {
             </p>
           );
         })}
+        <h2>[Visualizations]</h2>
+        {visItems.map(visItem => (
+          <VisItem item={visItem} />
+        ))}
+        <h2>[On Media]</h2>
+        {mediaItems.map(mediaItem => (
+          <MediaItem item={mediaItem} />
+        ))}
       </div>
     );
   }
