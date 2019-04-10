@@ -61,11 +61,11 @@ const getUrl = tabId =>
 
 class Item extends React.Component {
   render() {
-    const { titlezh, urlzh } = this.props.item;
+    const { titlezh, urlzh, titleen, urlen } = this.props.item;
     return (
       <div>
-        <a href={urlzh} target="_blank">
-          {titlezh}
+        <a href={urlzh || urlen} target="_blank">
+          {`${titlezh} ${titleen}`}
         </a>
       </div>
     );
@@ -151,9 +151,11 @@ class App extends React.Component {
       <div>
         {head}
         <h2>{`{UI · UX · Visualization}`}</h2>
-        <div className="flex">{visItems.map(visItem => (
-          <VisItem item={visItem} />
-        ))}</div>
+        <div className="flex">
+          {visItems.map(visItem => (
+            <VisItem item={visItem} />
+          ))}
+        </div>
         <h4>{`- On Media -`}</h4>
         {mediaItems.map(mediaItem => (
           <MediaItem item={mediaItem} />
