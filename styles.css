@@ -1,0 +1,55 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+h1 {
+  font-size: 84px;
+  line-height: 0.8em;
+  margin: 24px 0;
+}
+h2 {
+  font-size: 40px;
+  line-height: 0.9em;
+  margin: 24px 0;
+}
+h3 {
+  font-size: 22px;
+  line-height: 0.8em;
+  margin: 16px 0;
+}
+h4 {
+  font-weight: 600;
+  margin: 12px 0 6px 0;
+}
+a {
+  text-decoration: none;
+  color: initial;
+}
+a:hover {
+  text-decoration: underline;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex > div {
+  margin-right: 5px;
+}
+img {
+  max-height: 150px;
+}
+.detail {
+  font-size: 14px;
+  line-height: 1.2em;
+}
+b {
+  font-weight: 600;
+}
+.m-10 {
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+}
+.m-10>div {
+  margin-top: -6px;
+}

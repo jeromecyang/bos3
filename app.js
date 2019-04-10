@@ -1,5 +1,61 @@
 "use es6";
 
+const head = (
+  <div>
+    <h1>Lifetime Sojourner</h1>
+    <div>
+      <b>
+        {`travel through everyday life as a sojourner // curious, passionate and adventureous // jerome yang 楊佳榮`}
+      </b>
+    </div>
+    <div>
+      taiwanese // blogger // traveler // software engineer at{" "}
+      <a href="https://www.hubspot.com/" target="_blank">
+        hubspot
+      </a>{" "}
+      // member of{" "}
+      <a href="https://mosaicboston.com/" target="_blank">
+        mosaic boston church
+      </a>
+    </div>
+    <div className="flex">
+      <div>
+        <i class="fa fa-instagram" />{" "}
+        <a href="https://www.instagram.com/lifetimesojourner/" target="_blank">
+          lifetimesojourner
+        </a>
+      </div>
+      <div>
+        <i class="fa fa-facebook-square" />{" "}
+        <a href="https://www.facebook.com/lifetimesojourner/" target="_blank">
+          lifetimesojourner
+        </a>{" "}
+        <a href="https://www.facebook.com/jerome.c.yang/" target="_blank">
+          jerome.c.yang
+        </a>
+      </div>
+      <div>
+        <i class="fa fa-twitter-square" />{" "}
+        <a href="https://twitter.com/jeromyang/" target="_blank">
+          jeromyang
+        </a>
+      </div>
+      <div>
+        <i class="fa fa-linkedin-square" />{" "}
+        <a href="https://www.linkedin.com/in/jeromecyang/" target="_blank">
+          jeromecyang
+        </a>
+      </div>
+      <div>
+        <i class="fa fa-envelope-square" />{" "}
+        <a href="mailto:hi@jeromeyang.com" target="_blank">
+          hi@jeromeyang.com
+        </a>
+      </div>
+    </div>
+  </div>
+);
+
 const getUrl = tabId =>
   `https://spreadsheets.google.com/feeds/list/1PPCcW1XVljZ1n4plGoyYj44ciCMwklnBkeHayg0uQFE/${tabId}/public/values?alt=json`;
 
@@ -20,13 +76,9 @@ class VisItem extends React.Component {
   render() {
     const { title, url, description } = this.props.item;
     return (
-      <div>
-        <h3>{`- ${title} -`}</h3>
+      <div className="m-10">
         <img src={url} />
-        <div
-          className="detail"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <div>{title}</div>
       </div>
     );
   }
@@ -97,68 +149,23 @@ class App extends React.Component {
     const { categories, subcategories, visItems, mediaItems } = this.state;
     return (
       <div>
-        <h1>Lifetime Sojourner</h1>
-        <div>
-          {`travel through everyday life as a sojourner // curious, passionate and adventureous // jerome yang`}
-        </div>
-        <div>
-          taiwanese // blogger // traveler // software engineer at{" "}
-          <a href="https://www.hubspot.com/" target="_blank">
-            hubspot
-          </a>{" "}
-          // member of{" "}
-          <a href="https://mosaicboston.com/" target="_blank">
-            mosaic boston church
-          </a>
-        </div>
-        <div className="flex">
-          <div>
-            <i class="fa fa-instagram" />{" "}
-            <a
-              href="https://www.instagram.com/lifetimesojourner/"
-              target="_blank"
-            >
-              lifetimesojourner
-            </a>
-          </div>
-          <div>
-            <i class="fa fa-facebook-square" />{" "}
-            <a
-              href="https://www.facebook.com/lifetimesojourner/"
-              target="_blank"
-            >
-              lifetimesojourner
-            </a>{" "}
-            <a href="https://www.facebook.com/jerome.c.yang/" target="_blank">
-              jerome.c.yang
-            </a>
-          </div>
-          <div>
-            <i class="fa fa-twitter-square" />{" "}
-            <a href="https://twitter.com/jeromyang/" target="_blank">
-              jeromyang
-            </a>
-          </div>
-          <div>
-            <i class="fa fa-linkedin-square" />{" "}
-            <a href="https://www.linkedin.com/in/jeromecyang/" target="_blank">
-              jeromecyang
-            </a>
-          </div>
-          <div>
-            <i class="fa fa-envelope-square" />{" "}
-            <a href="mailto:hi@jeromeyang.com" target="_blank">
-              hi@jeromeyang.com
-            </a>
-          </div>
-        </div>
+        {head}
+        <h2>{`{UI · UX · Visualization}`}</h2>
+        <div className="flex">{visItems.map(visItem => (
+          <VisItem item={visItem} />
+        ))}</div>
+        <h4>{`- On Media -`}</h4>
+        {mediaItems.map(mediaItem => (
+          <MediaItem item={mediaItem} />
+        ))}
+        <h2>{`{Travel · Writing}`}</h2>
         {categories.map(category => {
           const thisSubcategories = subcategories
             .filter(subcategory => subcategory.category === category.token)
             .map(subcategory => subcategory.token);
           return (
-            <p>
-              <h2>{`[${category.title}]`}</h2>
+            <div>
+              <h3>{`[${category.title}]`}</h3>
               {this.renderItems(
                 item =>
                   item.category === category.token &&
@@ -170,7 +177,7 @@ class App extends React.Component {
                 )
                 .map(subcategory => (
                   <div>
-                    <h3>{`- ${subcategory.title} -`}</h3>
+                    <h4>{`- ${subcategory.title} -`}</h4>
                     {this.renderItems(
                       item =>
                         item.category === category.token &&
@@ -178,17 +185,9 @@ class App extends React.Component {
                     )}
                   </div>
                 ))}
-            </p>
+            </div>
           );
         })}
-        <h2>[Visualizations]</h2>
-        {visItems.map(visItem => (
-          <VisItem item={visItem} />
-        ))}
-        <h2>[On Media]</h2>
-        {mediaItems.map(mediaItem => (
-          <MediaItem item={mediaItem} />
-        ))}
       </div>
     );
   }
