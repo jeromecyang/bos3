@@ -1,17 +1,18 @@
 * {
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
 }
 h1 {
-  font-size: 84px;
+  font-size: 96px;
   line-height: 0.8em;
-  margin: 24px 0;
+  margin: 24px 0 48px;
 }
 h2 {
-  font-size: 40px;
+  font-size: 48px;
   line-height: 0.9em;
-  margin: 24px 0;
+  margin: 96px 0 48px;
+  text-align: center;
 }
 h3 {
   font-size: 22px;
@@ -32,6 +33,7 @@ a:hover {
 .flex {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .flex > div {
   margin-right: 5px;
@@ -50,6 +52,31 @@ b {
   margin-right: 10px !important;
   margin-bottom: 10px !important;
 }
-.m-10>div {
+.m-10 > div {
   margin-top: -6px;
+}
+
+body {
+  margin-bottom: 100px;
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+.banner > div > div {
+  margin: 8px 0;
+}
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.emphasis {
+  text-align: center;
+}
+.emphasis > i {
+  font-size: 96px;
+  color: #bbb;
 }
