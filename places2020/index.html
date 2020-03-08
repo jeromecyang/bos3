@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New York Times' "52 Places to Go in 2020" on Map | Jerome Yang @ Lifetime Sojourner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Spartan|Open+Sans:300&display=swap" rel="stylesheet">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Spartan', sans-serif;
+      }
+      .gm-style-iw {
+        background-color: #222 !important;
+        padding: 12px 0 12px 12px !important;
+        border-radius: 0 !important;
+        color: #ffffff;
+        font-family: 'Spartan', sans-serif !important;
+      }
+      .gm-style-iw-d {
+        background-color: #222 !important;
+        overflow-x: hidden !important;
+        width: 300px;
+        height: 350px;
+      }
+      .gm-style-iw-t::after {
+        background: #222 !important;
+        box-shadow: none !important;
+      }
+      #overlay {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .25);
+        padding: 15px 0;
+        text-align: center;
+        color: #ffffff;
+      }
+      .title {
+        font-size: 24px;
+      }
+      .subtitle {
+        font-size: 12px;
+        margin-top: 10px;
+      }
+      a {
+        color: #ffffff;
+      }
+/*      .gm-style-iw-d::-webkit-scrollbar {
+        background-color: #000000 !important;
+      }
+      .gm-style-iw-d::-webkit-scrollbar-thumb {
+        background-color: #000000 !important;
+      }*/
+      .gm-style-iw-d::-webkit-scrollbar-track, .gm-style-iw-d::-webkit-scrollbar-track-piece {
+        background: none !important;
+      }
+/*      .gm-style-iw-d::-webkit-track {
+        background-color: #000000 !important;
+      }*/
+/*      .gm-style-iw-d::-webkit-scrollbar-track {
+        width: 10px;
+        background-color: darkgrey;
+      }*/
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="overlay">
+      <div class="title">New York Times' <a href="https://www.nytimes.com/interactive/2020/travel/places-to-visit.html" target="_blank">"52 Places to Go in 2020"</a> on Map</div>
+      <div class="subtitle">By Jerome Yang @ <a href="https://ltsoj.com/" target="_blank">Lifetime Sojourner</a> | <a href="https://www.facebook.com/lifetimesojourner/" target="_blank">Facebook</a> | <a href="https://www.instagram.com/lifetimesojourner/" target="_blank">Instagram</a></div>
+    </div>
+    <!-- Replace the value of the key parameter with your own API key. -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1a5Qt70mQ9GzIX6uSgvLHHHeo6l4uLoo&callback=initMap"
+    ></script>
+    <script>
+      function initMap() {
+        const styles = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 2,
+          center: { lat: 30, lng: 0 },
+          styles,
+          mapTypeControl: false,
+          fullscreenControl: false,
+          streetViewControl: false,
+        });
+
+        const infowindow = new google.maps.InfoWindow();
+
+        fetch('./nytimes3.json').then(r => r.json()).then(places => places.forEach(({ name, latitude, longitude, media, id, country, summary, description }) => {
+          const marker = new google.maps.Marker({
+            position: { lat: latitude, lng: longitude },
+            map,
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 7,
+              fillColor: '#00bcd4',
+              fillOpacity: 0.6,
+              strokeWeight: 0,
+            },
+          });
+          marker.addListener("click", () => {
+            infowindow.close();
+            const title = name === country ? `<h2>${id - 20}. ${name}</h2>` : `<h2>${id - 20}. ${name}, ${country}</h2>`;
+            const subtitle = `<div style="margin-bottom: 20px">${summary}</div>`;
+            const body = `<div style="margin: 20px 0; font-family: 'Open Sans', sans-serif;">${description}</div>`;
+            if (media.includes('.mp4')) {
+              infowindow.setContent(`${title}${subtitle}<video width="275" autoplay><source src="${media}" type="video/mp4"></video>${body}`);  
+            } else {
+              infowindow.setContent(`${title}${subtitle}<img width="275" src="${media}">${body}`);
+            }
+            infowindow.open(map, marker);
+          });
+        }));
+      }
+    </script>
+  </body>
+</html>
