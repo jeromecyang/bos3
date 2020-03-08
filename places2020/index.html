@@ -10,7 +10,7 @@
       /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
       #map {
-        height: 100%;
+        height: calc(100% - 80px);
       }
       /* Optional: Makes the sample page fill the window. */
       html,
@@ -38,8 +38,6 @@
         box-shadow: none !important;
       }
       #overlay {
-        position: absolute;
-        top: 0;
         width: 100%;
         background-color: rgba(0, 0, 0, .25);
         padding: 15px 0;
@@ -64,11 +62,11 @@
   <body>
     <img src="https://imgur.com/ZrAkE3x.jpg" style="display: none">
     <img src="https://imgur.com/6YHskKO.jpg" style="display: none">
-    <div id="map"></div>
     <div id="overlay">
       <div class="title">New York Times' <a href="https://www.nytimes.com/interactive/2020/travel/places-to-visit.html" target="_blank">"52 Places to Go in 2020"</a> on Map</div>
       <div class="subtitle">By Jerome Yang @ <a href="https://ltsoj.com/" target="_blank">Lifetime Sojourner</a> | <a href="https://www.facebook.com/lifetimesojourner/" target="_blank">Facebook</a> | <a href="https://www.instagram.com/lifetimesojourner/" target="_blank">Instagram</a></div>
     </div>
+    <div id="map"></div>
     <!-- Replace the value of the key parameter with your own API key. -->
     <script
       async
