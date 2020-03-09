@@ -88,6 +88,10 @@
 
         const infowindow = new google.maps.InfoWindow();
 
+        map.addListener("click", () => {
+          infowindow.close();
+        });
+
         fetch('./nytimes3.json').then(r => r.json()).then(places => places.forEach(({ name, latitude, longitude, media, id, country, summary, description }) => {
           const marker = new google.maps.Marker({
             position: { lat: latitude, lng: longitude },
@@ -104,11 +108,12 @@
             infowindow.close();
             const title = name === country ? `<h2>${id - 20}. ${name}</h2>` : `<h2>${id - 20}. ${name}, ${country}</h2>`;
             const subtitle = `<div style="margin-bottom: 20px">${summary}</div>`;
-            const body = `<div style="margin: 20px 0; font-family: 'Open Sans', sans-serif;">${description}</div>`;
+            const body = `<div style="margin: 20px 0 10px; font-family: 'Open Sans', sans-serif;">${description}</div>`;
+            const source = `<div style="margin: 10px 0 20px; font-family: 'Open Sans', sans-serif;"><i><a href="https://www.nytimes.com/interactive/2020/travel/places-to-visit.html" target="_blank">(Read more on New York Times)</a></i></div>`;
             if (media.includes('.mp4')) {
-              infowindow.setContent(`${title}${subtitle}<video width="275" autoplay><source src="${media}" type="video/mp4"></video>${body}`);  
+              infowindow.setContent(`${title}${subtitle}<video width="275" autoplay><source src="${media}" type="video/mp4"></video>${body}${source}`);  
             } else {
-              infowindow.setContent(`${title}${subtitle}<img width="275" src="${media}">${body}`);
+              infowindow.setContent(`${title}${subtitle}<img width="275" src="${media}">${body}${source}`);
             }
             infowindow.open(map, marker);
           });
