@@ -72,12 +72,16 @@
     <div id="overlay">
       <div class="title">N Places to Go in 2020 on One Map</div>
       <div class="subtitle">
+        <span style="color: #ffeb3b">&#9679; CNN</span>
+        <span style="color: #00bcd4">&#9679; NYTimes</span>
+        <span style="color: #4caf50">&#9679; Travel&Leisure</span>
+        <span style="color: #e91e63">&#9679; Multiple</span> | 
         by Jerome Yang, <a href="https://ltsoj.com/" target="_blank">Lifetime Sojourner</a>&nbsp;&nbsp;<a href="https://www.facebook.com/lifetimesojourner/" target="_blank"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;<a href="https://www.instagram.com/lifetimesojourner/" target="_blank"><i class="fa fa-instagram"></i></a>
       </div>
     </div>
     <div id="map"></div>
     <script>
-      const PUBLISHED = ['NYT', 'CNN'];
+      const PUBLISHED = ['NYT', 'CNN', 'TL'];
 
       const websites = {
         "Bloomberg": "https://www.bloomberg.com/features/best-places-to-travel-2020/",
@@ -125,7 +129,7 @@
             const reportIds = recommendations.map(({ id }) => id);
             const [placeReport] = reports.filter(({ id }) => reportIds.includes(id));
 
-            const fillColor = published.length === 2 ? '#4caf50' : placeReport.source === 'CNN' ? '#ffeb3b' : '#00bcd4';
+            const fillColor = published.length > 1 ? '#e91e63' : placeReport.source === 'CNN' ? '#ffeb3b' : placeReport.source === 'TL' ? '#4caf50' : '#00bcd4';
             const marker = new google.maps.Marker({
               position: { lat, lng },
               map,
@@ -141,7 +145,7 @@
               infowindow.close();
               const title = recommendations.length > 1 ? `<h2>${place} (${recommendations.length})</h2>` : `<h2>${place}</h2>`;
               const recmd = `<div style="font-size: 12px; color: #666; margin-bottom: 10px">Recommended by: ${recommendations.map(({ source }) => `<a href="${websites[source]}" target="_blank">${source}</a>`).join(', ')}</div>`;
-              const { summary, description = '', media } = placeReport;
+              const { summary = '', description = '', media } = placeReport;
               const subtitle = `<div style="margin-bottom: 20px">${summary}</div>`;
               const body = `<div style="margin: 20px 0 10px; font-family: 'Open Sans', sans-serif;">${description}</div>`;
               if (media.includes('.mp4')) {
