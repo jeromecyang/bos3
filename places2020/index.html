@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New York Times' "52 Places to Go in 2020" on Map | Jerome Yang @ Lifetime Sojourner</title>
+    <title>N Places to Go in 2020 on One Map | Jerome Yang @ Lifetime Sojourner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="https://imgur.com/ZrAkE3x.jpg" /> 
     <meta property="og:image" content="https://imgur.com/6YHskKO.jpg" /> 
@@ -55,6 +55,9 @@
       a {
         color: #ffffff;
       }
+      .gm-style-iw a {
+        color: #666;
+      }
       .gm-style-iw-d::-webkit-scrollbar-track, .gm-style-iw-d::-webkit-scrollbar-track-piece {
         background: none !important;
       }
@@ -67,23 +70,34 @@
     <img src="https://imgur.com/ZrAkE3x.jpg" style="display: none">
     <img src="https://imgur.com/6YHskKO.jpg" style="display: none">
     <div id="overlay">
-<!--       <div class="title">New York Times' <a href="https://www.nytimes.com/interactive/2020/travel/places-to-visit.html" target="_blank">"52 Places to Go in 2020"</a> on Map</div> -->
       <div class="title">N Places to Go in 2020 on One Map</div>
       <div class="subtitle">
         by Jerome Yang, <a href="https://ltsoj.com/" target="_blank">Lifetime Sojourner</a>&nbsp;&nbsp;<a href="https://www.facebook.com/lifetimesojourner/" target="_blank"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;<a href="https://www.instagram.com/lifetimesojourner/" target="_blank"><i class="fa fa-instagram"></i></a>
       </div>
     </div>
     <div id="map"></div>
-    <!-- Replace the value of the key parameter with your own API key. -->
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1a5Qt70mQ9GzIX6uSgvLHHHeo6l4uLoo&callback=initMap"
-    ></script>
     <script>
-      function initMap() {
-        const styles = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
+      const PUBLISHED = ['NYT', 'CNN'];
 
+      const websites = {
+        "Bloomberg": "https://www.bloomberg.com/features/best-places-to-travel-2020/",
+        "The Point Guy": "https://thepointsguy.com/guide/destinations-for-2020/",
+        "CNTraveller": "https://www.cntraveller.com/gallery/best-holiday-destinations-2020",
+        "TripSavvy": "https://www.tripsavvy.com/where-to-go-in-2020-4780444",
+        "Frommer's": "https://www.frommers.com/slideshows/848383-frommer-s-best-places-to-go-in-2020",
+        "CNN": "https://www.cnn.com/travel/article/places-to-visit-2020/index.html",
+        "NYTimes": "https://www.nytimes.com/interactive/2020/travel/places-to-visit.html",
+        "TL": "https://www.travelandleisure.com/trip-ideas/best-places-to-travel-in-2020",
+        "LP": "https://www.lonelyplanet.com/best-in-travel",
+        "AFAR": "https://www.afar.com/magazine/best-places-to-travel-in-2020",
+        "Forbes": "https://www.forbes.com/sites/laurabegleybloom/2019/12/18/where-to-go-next-best-places-travel-2020",
+        "Thrillist": "https://www.thrillist.com/travel/nation/best-places-to-travel-2020-vacations-trips",
+        "NG": "https://www.nationalgeographic.com/travel/features/best-trips-2020"
+      };
+
+      const styles = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
+
+      function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 2,
           center: { lat: 30, lng: 0 },
@@ -99,33 +113,52 @@
           infowindow.close();
         });
 
-        fetch('./nytimes3.json').then(r => r.json()).then(places => places.forEach(({ name, latitude, longitude, media, id, country, summary, description }) => {
-          const marker = new google.maps.Marker({
-            position: { lat: latitude, lng: longitude },
-            map,
-            icon: {
-              path: google.maps.SymbolPath.CIRCLE,
-              scale: 7,
-              fillColor: '#00bcd4',
-              fillOpacity: 0.6,
-              strokeWeight: 0,
-            },
-          });
-          marker.addListener("click", () => {
-            infowindow.close();
-            const title = name === country ? `<h2>${id - 20}. ${name}</h2>` : `<h2>${id - 20}. ${name}, ${country}</h2>`;
-            const subtitle = `<div style="margin-bottom: 20px">${summary}</div>`;
-            const body = `<div style="margin: 20px 0 10px; font-family: 'Open Sans', sans-serif;">${description}</div>`;
-            const source = `<div style="margin: 10px 0 20px; font-family: 'Open Sans', sans-serif;"><i><a href="https://www.nytimes.com/interactive/2020/travel/places-to-visit.html" target="_blank">(Read more on New York Times)</a></i></div>`;
-            if (media.includes('.mp4')) {
-              infowindow.setContent(`${title}${subtitle}<video width="275" autoplay><source src="${media}" type="video/mp4"></video>${body}${source}`);  
-            } else {
-              infowindow.setContent(`${title}${subtitle}<img width="275" src="${media}">${body}${source}`);
+        Promise.all([
+          fetch('./all_places.json').then(r => r.json()),
+          fetch('./all_reports.json').then(r => r.json())
+        ]).then(([places, reports]) => {
+          places.forEach(({ lat, lng, place, recommendations }) => {
+            const published = recommendations.filter(({ source }) => PUBLISHED.includes(source));
+            if (published.length === 0) {
+              return;
             }
-            infowindow.open(map, marker);
+            const reportIds = recommendations.map(({ id }) => id);
+            const [placeReport] = reports.filter(({ id }) => reportIds.includes(id));
+
+            const fillColor = published.length === 2 ? '#4caf50' : placeReport.source === 'CNN' ? '#ffeb3b' : '#00bcd4';
+            const marker = new google.maps.Marker({
+              position: { lat, lng },
+              map,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 5.5,
+                fillColor,
+                fillOpacity: 0.6,
+                strokeWeight: 0,
+              },
+            });
+            marker.addListener("click", () => {
+              infowindow.close();
+              const title = recommendations.length > 1 ? `<h2>${place} (${recommendations.length})</h2>` : `<h2>${place}</h2>`;
+              const recmd = `<div style="font-size: 12px; color: #666; margin-bottom: 10px">Recommended by: ${recommendations.map(({ source }) => `<a href="${websites[source]}" target="_blank">${source}</a>`).join(', ')}</div>`;
+              const { summary, description = '', media } = placeReport;
+              const subtitle = `<div style="margin-bottom: 20px">${summary}</div>`;
+              const body = `<div style="margin: 20px 0 10px; font-family: 'Open Sans', sans-serif;">${description}</div>`;
+              if (media.includes('.mp4')) {
+                infowindow.setContent(`${title}${recmd}${subtitle}<video width="275" autoplay><source src="${media}" type="video/mp4"></video>${body}`);  
+              } else {
+                infowindow.setContent(`${title}${recmd}${subtitle}<img width="275" src="${media}">${body}`);
+              }
+              infowindow.open(map, marker);
+            });
           });
-        }));
+        });
       }
     </script>
+    <!-- Replace the value of the key parameter with your own API key. -->
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1a5Qt70mQ9GzIX6uSgvLHHHeo6l4uLoo&callback=initMap"
+    ></script>
   </body>
 </html>
