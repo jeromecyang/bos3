@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Lifetime Sojourner | Jerome Yang</title>
+    <title>Jerome Yang Official Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <link
@@ -12,101 +12,295 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <link href="styles.css" rel="stylesheet" />
+    <style>
+body {
+  font-family: 'Open Sans';
+  background-color: #000000;
+  color: #aaaaaa;
+}
+a {
+  color: #aaaaaa;
+}
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+}
+.cover {
+  min-height: 100vh;
+}
+.start {
+  height: 100vh;
+  color: #444;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.start a {
+  color: #444;
+}
+.highlight, .highlight a {
+  color: #aaaaaa;
+  font-size: 24px;
+  text-decoration: none;
+}
+.start>div {
+  padding: 0 10px;
+}
+.start-left {
+  font-size: 84px;
+  width: 250px;
+  line-height: .9em;
+  text-align: right;
+}
+.start-right {
+  max-width: 670px;
+}
+.section-title {
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  font-size: 36px;
+  margin: 40px auto 20px;
+  color: #444;
+  letter-spacing: 20px;
+}
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 14px;
+  color: #888888;
+}
+.videos>div {
+  width: 300px;
+  margin: 10px 5px;
+}
+.videos>div iframe, .videos>div img, .videos>div .img {
+  width: 288px;
+  height: 172px;
+}
+.videos .video-title {
+  font-size: 16px;
+  color: #aaaaaa;
+}
+.portfolio {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.portfolio .title {
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 30px;
+}
+.portfolio .subtitle {
+  text-align: center;
+  color: #888;
+  margin: 10px auto;
+}
+.portfolio .images {
+  text-align: center;
+}
+.portfolio .images>img {
+  max-width: 100%;
+}
+.portfolio .images>img.sm {
+  width: 100px;
+}
+hr {
+  opacity: 0;
+}
+    </style>
   </head>
-  <!--body>
-    <div id="app"></div>
-    <script
-      crossorigin
-      src="https://unpkg.com/react@16/umd/react.production.min.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/babel" src="app.js"></script>
-  </body-->
   <body>
-    <div class="banner">
-      <div>
-        <h1>Lifetime Sojourner</h1>
-        <div>
-          <b
-            >travel through everyday life as a sojourner // curious, passionate
-            and adventureous // jerome yang 楊佳榮</b
-          >
-        </div>
-        <div>
-          taiwanese // blogger // traveler // software engineer at
-          <a href="https://www.hubspot.com/" target="_blank">hubspot</a> //
-          member of
-          <a href="https://mosaicboston.com/" target="_blank"
-            >mosaic boston church</a
-          >
-        </div>
-      </div>
+
+<div class="start">
+  <div class="start-left"><img src="./profile_201910.jpg" width="250"></div>
+  <div class="start-right">
+    <div class="highlight">
+      <a href="https://ltsoj.com" target="_blank">終身旅人 lifetime sojourner</a> 
+      <a href="https://ltsoj.com" target="_blank"><i class="fa fa-map-marker"></i></a>
+      <a href="https://www.facebook.com/lifetimesojourner/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+      <a href="https://www.instagram.com/lifetimesojourner/" target="_blank"><i class="fa fa-instagram"></i></a>
     </div>
-    <div class="content">
-      <h2>Media</h2>
-      <div class="flex">
-        <div class="emphasis">
-          <i class="fa fa-medium"></i>
-          <div>
-            <a
-              href="https://www.instagram.com/lifetimesojourner/"
-              target="_blank"
-              >lifetimesojourner</a
-            >
-          </div>
-        </div>
-        <div class="emphasis">
-          <i class="fa fa-instagram"></i>
-          <div>
-            <a
-              href="https://www.instagram.com/lifetimesojourner/"
-              target="_blank"
-              >lifetimesojourner</a
-            >
-          </div>
-        </div>
-        <div class="emphasis">
-          <i class="fa fa-facebook-square"></i>
-          <div>
-            <a
-              href="https://www.facebook.com/lifetimesojourner/"
-              target="_blank"
-              >lifetimesojourner</a
-            >
-          </div>
-        </div>
-      </div>
-      <h2>Contact</h2>
-      <div class="flex">
-        <div>
-          <i class="fa fa-facebook-square"></i>
-          <a href="https://www.facebook.com/jerome.c.yang/" target="_blank"
-            >jerome.c.yang</a
-          >
-        </div>
-        <div>
-          <i class="fa fa-twitter-square"></i>
-          <a href="https://twitter.com/jeromyang/" target="_blank">jeromyang</a>
-        </div>
-        <div>
-          <i class="fa fa-linkedin-square"></i>
-          <a href="https://www.linkedin.com/in/jeromecyang/" target="_blank"
-            >jeromecyang</a
-          >
-        </div>
-        <div>
-          <i class="fa fa-envelope-square"></i>
-          <a href="mailto:hi@jeromeyang.com" target="_blank"
-            >hi@jeromeyang.com</a
-          >
-        </div>
-      </div>
+    <div>旅行與文化探索部落格</div>
+    <div>a travel and cultural exploration blog</div>
+    <hr>
+    <hr>
+    <div class="highlight">
+      楊佳榮 jerome chia-rung yang
+      <a href="https://github.com/jeromecyang" target="_blank"><i class="fa fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/jerome-yang-91995a4b" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+      <a href="mailto:hi@jeromeyang.com" target="_blank"><i class="fa fa-envelope-square"></i></a>
+      <a href="https://www.youtube.com/user/cryang1018" target="_blank"><i class="fa fa-youtube-square"></i></a>
     </div>
+    <div>自助旅行者 · 內容創作者</div>
+    <div>台灣台北人 · 地理學與社會學背景</div>
+    <div>現居美國波士頓 · hubspot 前端軟體工程師</div>
+    <div>mosaic boston church 樂團鍵盤手</div>
+    <hr>
+    <div>independent backpacker · content creator</div>
+    <div>from taipei, taiwan · educated in geography and sociology</div>
+    <div>currently in boston, usa · front-end software engineer at hubspot</div>
+    <div>keyboardist at mosaic boston church</div>
+    <hr>
+    <div>
+      <a href="#portfolio">專案 projects</a>
+      <a href="#media">媒體 media</a>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <a id="portfolio"></a>
+  <div class="section-title">[projects]</div>
+  <div class="portfolio">
+    <div class="title">Smart Mapping</div>
+    <div class="subtitle">An intelligent system that recommends how you can visualize your geospatial data</div>
+    <div class="images">
+      <img src="https://blogs.esri.com/esri/arcgis/files/2020/02/SD_heatmap.jpg">
+    </div>
+    <div class="description">
+      <p>"We want to go one step further for you" is the motivation of this project. Instead of letting you set visualization method, color, symbol, etc step by step, ArcGIS.com is now going one step further for you. We analyze your data and recommend good ways to visualize them for you. By no means this means you lose your control over your visualization, but our smart default will make your visualization production process quicker and more enjoyable.</p><p>I was the primary prototype developer on this project, involving extensively in research and product version development. This technology has been published as a US patent.</p><p><ul><li><a href='//www.esri.com/software/arcgis/smart-mapping' target='_blank'>Smart Mapping Home</a> <span class='note'>(overview & video)</span></li><li><a href='//blogs.esri.com/esri/arcgis/2015/03/02/introducing-smart-mapping/' target='_blank'>Introducing Smart Mapping</a> <span class='note'>(blog post)</span></li><li><a href='https://patents.google.com/patent/US20160246468A1/en' target='_blank'>Systems and methods for smart cartography</a> <span class='note'>(US Patent US20160246468A1)</span></li></ul></p>
+    </div>
+
+    <div class="title">Knowing your Customers with Pointillist</div>
+    <div class="subtitle">An revolutionary customer journey analytics platform</div>
+    <div class="images"><img src="https://www.pointillist.com/wp-content/uploads/2017/05/Discover-Full-Size.png"></div>
+    <div class="description"><p>Nowaways, millions of web user events (such as clicking a button, checking out a URL, etc) happen and are recorded every day. Pointillist pulls all these events together to show the big picture behind the scene.</p><p>This platform was built as a big data analytics solution for non-technical users, and therefore there is significant amount of work on its front-end, as well as the web services to support the it. As a founding and primary developer, I have been in charge of the UI/UX, visualization, and REST services since the beginning of the product.</p><p>Learn more about Pointillist at <a href="https://www.pointillist.com/" target="_blank">pointillist.com</a>.</p></div>
+
+    <div class="title">Evolving Geo-Visualization at Esri, 2013-2014</div>
+    <div class="subtitle">Data Visualization with ArcGIS API for JavaScript</div>
+    <div class="images">
+      <img src="https://blogs.esri.com/esri/arcgis/files/2014/10/visualization-5-1.png">
+      <img src="images/viz-bay-area.png">
+    </div>
+    <div class="description"><p>"Let geographic data tell stories via the Internet" is this project's goal. As world-wide web becomes the primary media of maps and geographic information, <i>how should traditional maps and cartography evolve to meet the emerging needs and challenges of web mapping?</i></p><p>Throughout the years of 2013 and 2014, we significantly expanded our web mapping platform with more intuitive, comprehensive and east-to-use API for developers. Now a pretty dot density map or a choropleth with opacity variation can take only a few lines of code. While many customers have taken these new tools to create their own cool pieces, we also built a bunch of pretty demos to prototype, to inspire and to explore the future of geospatial data visualization.</p><ul><b>My blog posts</b><li><a href='http://blogs.esri.com/esri/arcgis/2014/09/05/data-visualization-with-arcgis-api-for-javascript/' target='_blank'>Data visualization with ArcGIS API for JavaScript</a></li><li><a href='http://blogs.esri.com/esri/arcgis/2014/09/11/data-visualization-with-arcgis-api-for-javascript-show-data-by-unique-value/' target='_blank'>Show Data by Unique Value</a></li><li><a href='https://blogs.esri.com/esri/arcgis/2014/09/24/data-visualization-with-arcgis-api-for-javascript-enhancement-options/' target='_blank'>Enhancement Options</a></li><li><a href='https://blogs.esri.com/esri/arcgis/2014/10/10/data-visualization-with-arcgis-api-for-javascript-show-data-by-color/' target='_blank'>Show Data by Color</a></li><li><a href='https://blogs.esri.com/esri/arcgis/2014/12/01/data-visualization-with-arcgis-api-for-javascript-show-data-by-size/' target='_blank'>Show Data by Size</a></li></ul><ul><b>My conference videos</b><li><a href='http://video.esri.com/watch/3840/whats-new-for-arcgis-api-for-javascript' target='_blank'>What's New for ArcGIS API for JavaScript (2014)</a></li><li><a href='http://video.esri.com/watch/3843/arcgis-api-for-javascript_comma_-mapping-and-visualization' target='_blank'>ArcGIS API for JavaScript, Mapping and Visualization</a></li></ul><ul><b>Demos</b><li><a href='vector.html' target='_blank'>One dataset, multiple ways to visualize</a></li><li><a href='http://developers.arcgis.com/en/javascript/samples/renderer_dot_density_multiple_classes/' target='_blank'>Scale-dependent dot density map</a></li><span class='note'>(A web-based dot-density map I developed. Try zoom in/out to see how the dot value changes with scale.)</span><li><a href='http://developers.arcgis.com/en/javascript/samples/renderer_color_ramp/' target='_blank'>Choropleth map without class breaks</a></li><span class='note'>(No class break anymore - we just map it from the minimum to the maximum!)</span></ul></div>
+
+    <div class="title">Angular-based Visualization: Urban Population of the World 2015</div>
+    <div class="subtitle">An attempt to manipulate SVG with Angular.js, and to show both quantity and percentage simultaneously</div>
+    <div class="images"><img src="http://jeromecyang.github.io/home/images/urban-pop-2015.png"></div>
+    <div class="description"><p>I tried to achieve two goals in this visualization.</p><p>Graphically, a quantity and a percentage are displayed with one single graphic for each country. The bar length shows population, whereas 10 different colors are used to show various percentages. The countries are ordered from the most urbanized to the least, so the order in the sequence can help the audience grasp how urbanized a country is compared to others.</p><p>Technologically, this visualization was created with only Angular.js. No d3.js is used. The advantage of this approach is a more contemporary, declarative, succinct way to manipulate SVG elements (compared to d3.js or jQuery). Also Angular's native directives, such as <code>ng-mouseenter</code>, <code>ng-if</code>, provide easy access to trigger events or toggle elements.</p><p>You can check out the application <a href="https://jeromecyang.github.io/bos2/urban-pop-2015/" target="_blank">here</a>.</p></div>
+
+    <div class="title">AfricaMap</div>
+    <div class="subtitle">Web-based geospatial data visualization in collaboration with the <a href='http://worldmap.harvard.edu/africamap' target='_blank'>Center for Geographic Analysis, Harvard University</a></div>
+    <div class="images"><img src="http://jeromecyang.github.io/home/images/africa.png"></div>
+    <div class="description"><p><a href='http://worldmap.harvard.edu/africamap' target='_blank'>AfricaMap</a> is an open-source web mapping platform designated for archiving, visualizing and integrating geospatial statistics particularly for Africa. One can easily find statistics from various organizations and governments, but <i>how do we fit them together in one single platform?</i></p><p>As a GIS analyst at <a href='http://gis.harvard.edu/icb/icb.do' target='_blank'>Center for Geographic Analysis (CGA), Harvard University</a>, I worked with African-Art-and-Architecture historian <a href='http://aaas.fas.harvard.edu/directory/faculty/suzanne-p-blier' target='_blank'>Dr. Suzanne P. Blier</a> to retrieve statistics from various sources, and explored the options to make these number \"visible\" on map. To handle data in various formats and qualities, I employed my fimilarity with data syntax and skills in programming for text processing to handle the data effectively and accurately. This is an ongoing project and all results are available at http://worldmap.harvard.edu/africamap.</p><ul><li><a href='http://worldmap.harvard.edu/africamap' target='_blank'>AfricaMap</a></li><li><a href='http://www.neh.gov/divisions/odh/grant-news/announcing-6-digital-humanities-implementation-grant-awards-july-2013' target='_blank'>Announcing 6 Digital Humanities Implementation Grant Awards (July 2013)</a></li></ul></div>
+
+    <div class="title">Map as a Communication Tool</div>
+    <div class="subtitle">Various thematic maps as storytelling media</div>
+    <div class="images">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/map1.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/map2.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/map3.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/map4.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/map5.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/map6.jpg">
+    </div>
+    <div class="description"><p>A map with good graphic design can convey messages in an informative and vivid way. As both a cartographer and a graphic designer, making maps with proper design is what I am striving for. This section contains maps I made for various projects.</p><ul><li><a href="http://jeromecyang.github.io/home/images/map1.jpg" target="_blank">How many rooms are in your house?</a></li><li><a href="http://jeromecyang.github.io/home/images/map2.jpg" target="_blank">The ratio of owner-occupied houses</a></li><li><a href="http://jeromecyang.github.io/home/images/map3.jpg" target="_blank">Creating conservation areas for red-legged frogs</a></li><li><a href="http://jeromecyang.github.io/home/images/map4.jpg" target="_blank">Fishing ports and annual production</a></li><li><a href="http://jeromecyang.github.io/home/images/map5.jpg" target="_blank">Shrinking air routes<a></li><li><a href="http://jeromecyang.github.io/home/images/map6.jpg" target="_blank">Special college admission program</a></li></ul></div>
+
+    <div class="title">Visualization from Scratch: Air Pollutants Mapping</div>
+    <div class="subtitle">Beginning with collecting first-hand air quality data in the field</div>
+    <div class="images">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/air1.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/air2.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/air3.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/air4.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/air5.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/air6.png">
+    </div>
+    <div class="description"><p>Air pollution mapping requires interpolation from point data. Instead of obtaining observations from existing monitoring stations, in this project we mapped air pollution from scratch - that is, we designed a monitoring network where the distribution of stations is optimized, went into the field to collect first-hand data, and explored the best way to visualize the data. Works included spatial optimization algorithm, experiment design, field particulate matter measurement, and visualization.</p><p>This project, which was proposed and coordinated by me, ultimately involved a interdisciplinary and collaborative effort of two professors and four graduate students with background in GIS, environmental science, physics, etc. It was awarded by Geller's Research Grant at <a href='http://www.clarku.edu/index.cfm' target='_blank'>Clark University</a>.</p><ul><li><a href='files/AirQuality_Poster4Research.pdf' target='_blank'>Conference poster</a></li><li><a href='files/Mapping the Concentration of Ambient Air Pollutants for Central Massachusetts.pdf' target='_blank'>Full project report</a></li></ul></div>
+
+    <div class="title">GIS off the Shore: Eelgrass Mapping</div>
+    <div class="subtitle">Getting GIS on board with the <a href='http://www.maine.gov/dmr/index.htm' target='_blank'>Maine Department of Marine Resources</a></div>
+    <div class="images">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/eelgrass1.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/eelgrass2.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/eelgrass3.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/eelgrass4.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/eelgrass5.png">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/eelgrass6.png">
+    </div>
+    <div class="description"><p>Eelgrass (<i>Zostera</i>) is an vital species in coastal ecosystems. It provides nutritions for many shallow ocean animals, and consequently sustains the fishery economy in the state of Maine. The goal of <a href='http://www.maine.gov/dmr/rm/eelgrass/index.htm' target='_blank'>eelgrass mapping</a> is to investigate, monitor and visualize eelgrass distribution.</p><p>Before entering the field, potential eelgrass patches were identified on low-tide aerial imagery and digitized in ArcGIS. While in the field, we drove a boat, navigated by ArcPad to visit every location we identified, and recorded the actual condition with notes, GPS tracklogs, photos and videos. After the field work, the data collected were summarized and released as public-accessible information in a web mapping application.</p></div>
+
+    <div class="title">Web GIS Crowd-sourcing</div>
+    <div class="subtitle">Developing interactive, collaborative web mapping applications</div>
+    <div class="images">
+      <img src="http://jeromecyang.github.io/home/images/crowdsource1.png">
+      <img src="http://jeromecyang.github.io/home/images/crowdsource2.png">
+    </div>
+    <div class="description"><p>Internet provides an effective way for multiple people to contribute geospatial data to one database. I participated in two crowd-sourcing GIS projects.</p><p><b>Maine Elver Map</b> was designed for marine patrol officers to report locations where illegal harvesting of elvers (young eels) were found. It successfully gathered 85 locations reported by about 10 officers. It employed Google Maps API and Google Fusion Table to provide a user interface and a publicly accessible database. Any input data was immediately reviewed by administrators via email to ensure the quality of the data.</p><p><a href='http://www.qiantangriver.org/' target='_blank'>QianTang River Map</a> was built to gather succeptible water pollution activities along the river. This project was initiated by <a href='http://www.greenzj.com/' target='_blank'>Green Zhejiang</a>, an environmental protection NGO in China. I worked as the primary technical lead to implement the system. Built upon <a href='http://www.ushahidi.com/' target='_blank'>Ushahidi's CrowdMap</a> platform, it leverages open-source tools to provide a zero-cost and easy-to-use solution to the NGO's need for crowd-sourcing.</p></div>
+
+    <div class="title">When Something is Built</div>
+    <div class="subtitle">3D terrian visualization of prospective constructions</div>
+    <div class="images">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction1.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction2.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction3.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction4.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction5.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction6.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction7.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction8.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction9.jpg">
+      <img class="sm" src="http://jeromecyang.github.io/home/images/thumbnail/construction10.jpg">
+    </div>
+    <div class="description"><p>In the beginning of the 21st century, Taiwan government proposed several "mega projects", including a highway crossing a 10,000-ft mountain ridge, a 4000-acre artificial reservoir for industrial water supply, etc.</p><p>To simulate these projects' impact on the landscapes, I independently created 12 3-D visualization scenes to give the public a chance to "preview" the changed landscapes when the construction is complete. These scenes were made by scanning and georeferencing maps from the project plans, retrieving Google's sattelite imagery, overlaying data with digital terrain model (DTM) in ArcScene, and post-export editing with Corel PhotoImpact.</p></div>
+  </div>
+  <a id="media"></a>
+  <div class="section-title">[media]</div>
+  <div class="videos">
+    <div>
+      <a href='http://video.esri.com/watch/3840/whats-new-for-arcgis-api-for-javascript' target='_blank'><img src="http://jeromecyang.github.io/home/images/video-api.png"></a>
+      <div class="video-title">ArcGIS API for JavaScript: What's New</div>
+      <div>Esri User Conference 2014</div>
+    </div>
+    <div>
+      <a href='http://video.esri.com/watch/3843/arcgis-api-for-javascript_comma_-mapping-and-visualization' target='_blank'><img src="http://jeromecyang.github.io/home/images/video-vis.png"></a>
+      <div class="video-title">ArcGIS API for JavaScript: Mapping and Visualization</div>
+      <div>Esri User Conference 2014</div>
+    </div>
+    <div>
+      <iframe width="288" height="172" src="https://www.youtube.com/embed/K9lTHFeiEHg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="video-title">HighCharts/HighMaps for Big Data Visualization</div>
+      <div>Harvard Extension School Class CSCI E-63</div>
+    </div>
+    <div>
+      <a href="https://blogs.esri.com/esri/arcgis/2014/09/05/data-visualization-with-arcgis-api-for-javascript/" target="_blank"><div class="img" style="background: url(http://blogs.esri.com/esri/arcgis/files/2014/09/visualization-js-1-1.png) center center"></div></a>
+      <div class="video-title">Data visualization with ArcGIS API for JavaScript</div>
+      <div>ArcGIS Blog</div>
+    </div>
+    <div>
+      <a href="https://blogs.esri.com/esri/arcgis/2014/09/11/data-visualization-with-arcgis-api-for-javascript-show-data-by-unique-value/" target="_blank"><div class="img" style="background: url(https://blogs.esri.com/esri/arcgis/files/2014/09/visualization-3-1.png) center center"></div></a>
+      <div class="video-title">Show Data by Unique Value</div>
+      <div>ArcGIS Blog</div>
+    </div>
+    <div>
+      <a href="https://blogs.esri.com/esri/arcgis/2014/09/24/data-visualization-with-arcgis-api-for-javascript-enhancement-options/" target="_blank"><div class="img" style="background: url(http://blogs.esri.com/esri/arcgis/files/2014/09/visualization-2-1-300x224.png) center center"></div></a>
+      <div class="video-title">Enhancement Options</div>
+      <div>ArcGIS Blog</div>
+    </div>
+    <div>
+      <a href="https://blogs.esri.com/esri/arcgis/2014/10/10/data-visualization-with-arcgis-api-for-javascript-show-data-by-color/" target="_blank"><div class="img" style="background: url(http://blogs.esri.com/esri/arcgis/files/2014/10/visualization-4-1.png) center center"></div></a>
+      <div class="video-title">Show Data by Color</div>
+      <div>ArcGIS Blog</div>
+    </div>
+    <div>
+      <a href="https://blogs.esri.com/esri/arcgis/2014/12/01/data-visualization-with-arcgis-api-for-javascript-show-data-by-size/" target="_blank"><div class="img" style="background: url(http://blogs.esri.com/esri/arcgis/files/2014/10/visualization-5-1.png) center center"></div></a>
+      <div class="video-title">Show Data by Size</div>
+      <div>ArcGIS Blog</div>
+    </div>
+    <div>
+      <a href="http://vissimply.com/about/2017/04/29/manipulate-svg-with-angular.html" target="_blank"><div class="img" style="background-color: #ccc"></div></a>
+      <div class="video-title">Manipulate SVG elements with Angular.js</div>
+      <div>Visualize Simply Blog</div>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>
