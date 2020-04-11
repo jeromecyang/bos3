@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+const url = location.search ? `http://localhost:8000/${location.search.replace('?path=', '')}` : './sample.json'
+fetch(url).then(r => r.json()).then(data => {
+  window.data = data;
+  const pre = document.createElement("pre");
+  pre.innerText = JSON.stringify(data, null, 2);
+  document.body.appendChild(pre);
+});
+    </script>
+  </body>
+</html>

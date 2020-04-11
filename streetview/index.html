@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Street View</title>
+    <style>
+      html, body, #pano {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pano"></div>
+    <script>
+      function initialize() {
+        var panorama = new google.maps.StreetViewPanorama(
+          document.getElementById("pano"),
+          {
+            pano: 'jvZuD2BF25hRh8Xf6x37ag',
+            pov: {
+              heading: 34,
+              pitch: 10,
+            },
+          }
+        );
+
+        setTimeout(() => {
+          console.log(document.querySelector('.gm-iv-address-link>a').getAttribute('href'));
+        }, 2000);
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1a5Qt70mQ9GzIX6uSgvLHHHeo6l4uLoo&callback=initialize"
+    ></script>
+  </body>
+</html>
